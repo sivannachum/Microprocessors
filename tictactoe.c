@@ -60,18 +60,6 @@ void print_board(char* interlude_str, unsigned int size, char ** board){
     printf("%s\n", interlude_str);
     for (col = 0; col < size; col++){
       printf("| %c ", board[row][col]);
-	// CHANGED    
-  /*
-      if (board[row][col] == 'O'){
-	printf("O ");
-      }
-      else if (board[row][col] == 'X'){
-	printf("X ");
-      }
-      else{
-	printf("  ");
-      }
-     */
     }
     printf("|\n");
   }

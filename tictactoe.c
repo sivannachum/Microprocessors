@@ -115,7 +115,7 @@ int check_win(int x, int y, char ** board, int boardLength, int player){
     }
   }
   
-  // Need to check row
+  // Need to check column
   win = 1;
   for (i = 0; i < boardLength; i++){
     if (board[i][y] != compare){
@@ -128,7 +128,7 @@ int check_win(int x, int y, char ** board, int boardLength, int player){
     return win;
   }
   
-  // Need to check column
+  // Need to check row
   win = 1;
   for (i = 0; i < boardLength; i++){
     if (board[x][i] != compare){

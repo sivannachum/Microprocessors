@@ -75,7 +75,7 @@ void print_board(char* interlude_str, unsigned int size, char ** board){
 * boardLength: the number of rows (which is equal to the number of columns) in the tic tac toe board
 * player: which player's turn it is
 */
-int check_win(unsigned int x, unsigned int y, char ** board, unsigned int boardLength, int player){
+int check_win(int x, int y, char ** board, unsigned int boardLength, int player){
   char compare;
   if (player == 1){
     compare = 'O';
@@ -156,8 +156,8 @@ int main(){
   // Keeps track of whose turn it is
   int player = 1;
   // Variables to hold the values input by users as they play
-  unsigned int x;
-  unsigned int y;
+  int x;
+  int y;
   // The interlude string ----- printed between rows of the tic tac toe board when it is output to the screen
   char * interlude_str;
   
@@ -212,10 +212,10 @@ int main(){
   // Gameplay while loop
   while (boardSize < (boardLength * boardLength)){
     printf("Player %d:\n", player);
-    scanf("%u %u", &x, &y);
+    scanf("%d %d", &x, &y);
     // If they input a completely inappropriate value, quit
-    if (x >= boardLength && y >= boardLength){
-      printf("Player %d entered %u %u.\n", player, x, y);
+    if ((x >= boardLength && y >= boardLength) || x < 0 || y < 0){
+      printf("Player %d entered %d %d.\n", player, x, y);
       // Error message
       printf("Inappropriate value. Goodbye.\n");
       return 1;

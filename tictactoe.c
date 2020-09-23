@@ -7,7 +7,7 @@
 * interlude_str: the malloced space that will hold the interlude string
 * size: the number of rows in the tic tac toe board
 */
-void init_interlude_str(char* interlude_str, unsigned int size){
+void init_interlude_str(char* interlude_str, int size){
   int i = 0;
   int j = 0;
   strcpy(interlude_str, "-");
@@ -24,7 +24,7 @@ void init_interlude_str(char* interlude_str, unsigned int size){
 * size: the number of rows (which equals the number of columns) in the tic tac toe board
 * board: the address of the tic tac toe board row pointers in memory
 */
-void create_board(unsigned int size, char ** board){
+void create_board(int size, char ** board){
   int i = 0;
   int row = 0;
   int col = 0;
@@ -52,7 +52,7 @@ void create_board(unsigned int size, char ** board){
 * size: the number of rows in the tic tac toe board
 * board: the address of the tic tac toe board row pointers in memory
 */
-void print_board(char* interlude_str, unsigned int size, char ** board){
+void print_board(char* interlude_str, int size, char ** board){
   int row = 0;
   int col = 0;
 
@@ -75,7 +75,7 @@ void print_board(char* interlude_str, unsigned int size, char ** board){
 * boardLength: the number of rows (which is equal to the number of columns) in the tic tac toe board
 * player: which player's turn it is
 */
-int check_win(int x, int y, char ** board, unsigned int boardLength, int player){
+int check_win(int x, int y, char ** board, int boardLength, int player){
   char compare;
   if (player == 1){
     compare = 'O';
@@ -144,7 +144,7 @@ int check_win(int x, int y, char ** board, unsigned int boardLength, int player)
 */
 int main(){
   // The number of rows (which equals the number of columns) in the tic tac toe board
-  unsigned int boardLength = 0;
+  int boardLength = 0;
   // Holds the y/n answer of the user to whether or not they want the output of the board during gameplay
   char output_play;
   // Boolean to keep track of whether or not the user wants output of the board during gameplay
@@ -163,7 +163,7 @@ int main(){
   
   // Ask the user what size board they want
   printf("Board Size (3..N):\n");
-  scanf("%u", &boardLength);
+  scanf("%d", &boardLength);
   
   // If they put in an inappropriate value, quit
   if (boardLength < 3){
@@ -197,7 +197,7 @@ int main(){
   }
 
   // Tell the user what they entered and that you're starting the game
-  printf("You entered %u %c.\n", boardLength, output_play);
+  printf("You entered %d %c.\n", boardLength, output_play);
   printf("Starting game with %d x %d board.\n", boardLength, boardLength);
 
   // Malloc the space in the board for the row pointers
@@ -229,7 +229,7 @@ int main(){
     }
     // Fill board; check if win
     else{
-      printf("Player %d entered %u %u.\n", player, x, y);
+      printf("Player %d entered %d %d.\n", player, x, y);
       if (player == 1){
         board[x][y] = 'O';
       }

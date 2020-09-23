@@ -81,8 +81,20 @@ void print_board(char* interlude_str, unsigned int size, char ** board){
 
 /**
 * Check if the latest game move results in a win.
+* x: the row of the latest input
+* y: the column of the latest input
+* board: the tic tac toe board
+* boardLength: the number of rows (which is equal to the number of columns) in the tic tac toe board
+* player: which player's turn it is
 */
-int check_win(unsigned int x, unsigned int y, char ** board, unsigned int boardLength, char compare){
+int check_win(unsigned int x, unsigned int y, char ** board, unsigned int boardLength, int player){
+  char compare;
+  if (player == 1){
+    compare = 'O';
+  }
+  else{
+    compare = 'X';
+  }
   // Used as a boolean to determine a win or not
   int win = 0;
   int i = 0;
@@ -139,6 +151,9 @@ int check_win(unsigned int x, unsigned int y, char ** board, unsigned int boardL
   return win;
 }
 
+/**
+* Runs the program / the game.
+*/
 int main(){
   // The number of rows (which equals the number of columns) in the tic tac toe board
   unsigned int boardLength = 0;
@@ -150,8 +165,8 @@ int main(){
   char ** board;
   // How many spaces in the board have been filled by players
   unsigned int boardSize = 0;
-  // Boolean expressing whether or not it is player one's turn
-  int playerOneTurn = 1;
+  // Keeps track of whose turn it is
+  int player = 1;
   // Variables to hold the values input by users as they play
   unsigned int x;
   unsigned int y;
@@ -208,76 +223,48 @@ int main(){
 
   // Gameplay while loop
   while (boardSize < (boardLength * boardLength)){
-    if (playerOneTurn){
-      printf("Player 1:\n");
-      scanf("%u %u", &x, &y);
-      // If they input a completely inappropriate value, quit
-      if (x >= boardLength && y >= boardLength){
-        printf("Player 1 entered %u %u.\n", x, y);
-	// Error message
-        printf("Inappropriate value. Goodbye.\n");
-        return 1;
-      }
-      // If they only input a partially inappropriate value, tell them to try again
-      else if (x >= boardLength || y >= boardLength 
-	      || board[x][y] == 'O' || board[x][y] == 'X'){
-	// Error message
-        printf("Incorrect value, try again.\n");
-        continue;
-      }
-      // Fill board; check if win
-      else{
-        printf("Player 1 entered %u %u.\n", x, y);
-	board[x][y] = 'O';
-	// If they want board output, output it
-        if (output){
-          print_board(interlude_str, boardLength, board);
-        }
-	if (check_win(x, y, board, boardLength, 'O')){
-	  // Print that they won
-	  printf("Player 1 is the winner.\n");
-	  break;
-	}
-	// Change whose turn it is and keep track of the board size
-	playerOneTurn = 0;
-	boardSize++;
-      }
+    printf("Player %d:\n", player);
+    scanf("%u %u", &x, &y);
+    // If they input a completely inappropriate value, quit
+    if (x >= boardLength && y >= boardLength){
+      printf("Player %d entered %u %u.\n", player, x, y);
+      // Error message
+      printf("Inappropriate value. Goodbye.\n");
+      return 1;
     }
-    // Same thing but for player 2
+    // If they only input a partially inappropriate value, tell them to try again
+    else if (x >= boardLength || y >= boardLength 
+	    || board[x][y] == 'O' || board[x][y] == 'X'){
+      // Error message
+      printf("Incorrect value, try again.\n");
+      continue;
+    }
+    // Fill board; check if win
     else{
-      printf("Player 2:\n");
-      scanf("%u %u", &x, &y);
-      // If they input a completely inappropriate value, quit
-      if (x >= boardLength && y >= boardLength){
-        printf("Player 2 entered %u %u.\n", x, y);
-	// Error message
-        printf("Inappropriate value. Goodbye.\n");
-        return 1;
+      printf("Player %d entered %u %u.\n", player, x, y);
+      if (player == 1){
+        board[x][y] = 'O';
       }
-      // If they only input a partially inappropriate value, tell them to try again
-      else if (x >= boardLength || y >= boardLength 
-	      || board[x][y] == 'O' || board[x][y] == 'X'){
-	// Error message
-        printf("Incorrect value, try again.\n");
-        continue;
+      else {
+        board[x][y] = 'X';
       }
-      // Fill board; check if win
+      // If they want board output, output it
+      if (output){
+        print_board(interlude_str, boardLength, board);
+      }
+      if (check_win(x, y, board, boardLength, player)){
+	// Print that they won
+	printf("Player %d is the winner.\n", player);
+	break;
+      }
+      // Change whose turn it is and keep track of the board size
+      if (player == 1){
+	player = 2;
+      }
       else{
-        printf("Player 2 entered %u %u.\n", x, y);
-	board[x][y] = 'X';
-	// If they want board output, output it
-        if (output){
-          print_board(interlude_str, boardLength, board);
-        }
-	if (check_win(x, y, board, boardLength, 'X')){
-	  // Print that they won
-	  printf("Player 2 is the winner.\n");
-	  break;
-	}
-	// Change whose turn it is
-	playerOneTurn = 1;
-	boardSize++;
+        player = 1;
       }
+      boardSize++;
     }
   }
 

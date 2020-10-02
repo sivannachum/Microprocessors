@@ -21,14 +21,14 @@ int main( int argc, char *argv[] ) {
   // display syntax if no arguments passed on command line
   if ( argc <= 1 ) {
     printf("Syntax: %s filename\n", argv[0] );
-    exit(1);
+    exit(0);
   }
 
   // If the length of the argument is equal to 100 (or longer),
   // there's no space for the null character in fileName
   if (strlen(argv[1]) >= 100){
       printf("Filename %s is too long.\n", argv[1]);
-      exit(1);
+      exit(0);
   }
 
   // if an argument is passed, it must be a file name

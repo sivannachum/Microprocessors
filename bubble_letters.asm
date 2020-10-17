@@ -1,6 +1,5 @@
 ;;; csc231.asm
-;;; Sivan Nachum
-;;; 
+;;;
 ;;; Prints "CSC 231" to stdout as bubble letters!
 ;;;
 ;;; to assemble and run:
@@ -21,7 +20,7 @@
 	;; The 10's indicate where linebreaks should be
 	msg db "  ____ ____   ____   ____  _____ _ ", 10
 	    db " / ___/ ___| / ___| |___ \|___ // |", 10
-	    db "| | \___ \| |         __) | |_ \| |", 10
+	    db "| |   \___ \| |       __) | |_ \| |", 10
 	    db "| |___ ___) | |___   / __/ ___) | |", 10
 	    db " \____|____/ \____| |_____|____/|_|", 10
 	;; Length between that spot and earlier label

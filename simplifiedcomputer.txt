@@ -1,0 +1,18 @@
+Copy into http://www.science.smith.edu/dftwiki/media/simulator/ to run
+Documentation available here http://www.science.smith.edu/dftwiki/index.php/Simple_Computer_Simulator_Instruction-Set
+Declares parts of memory x, y, z, and s
+Stores 3*x + 2*y - z in s
+
+0000:    JUMP 7        ; Jump to line 7
+0002:    10            ; x
+0003:    20            ; y
+0004:    30            ; z
+0005:    0             ; s
+0008:    LOAD [2]      ; load value at address 2 into accumulator
+0010:    ADD [2]       ; add value at address 2 to value in accumulator
+0012:    ADD [2]       ;
+0014:    ADD [3]       ;
+0016:    ADD [3]       ;
+0018:    SUB [4]       ; subtract value at address 4 from the value in the accumulator
+0020:    STORE [5]     ; stores the value in the accumulator at address 5
+0022:    HALT          ; stop execution

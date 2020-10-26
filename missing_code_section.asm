@@ -1,7 +1,7 @@
 ;;; ; ; hw6_2.asm
-;;; ; ; your name(s) here
+;;; ; ; Sivan Nachum
 ;;; ; ;
-;;; ; ; a description of the program
+;;; ; ; Prints "Assembly Language" with a border
 ;;; ; ;
 ;;; ; ; to assemble and run:
 ;;; ; ;

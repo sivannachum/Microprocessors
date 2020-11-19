@@ -20,7 +20,7 @@ _start:
 		mov	ecx, prompt
 		mov	edx, promptLen
 		call	_printString
-;;; ;  get a, which represents n (as in f(n))
+;;; ;  get a, which represents n that the user wants (as in f(n))
 		call	_getInput
 		mov	dword[a], eax
 

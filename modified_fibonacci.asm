@@ -10,7 +10,7 @@
 	prompt		db	"> "
 	promptLen	equ	$-prompt
 
-	a		dd	0
+	n		dd	0
 	ans		dd	0
 
 		section	.text
@@ -20,16 +20,16 @@ _start:
 		mov	ecx, prompt
 		mov	edx, promptLen
 		call	_printString
-;;; ;  get a, which represents n that the user wants (as in f(n))
+;;; ;  get n that the user wants (as in f(n))
 		call	_getInput
-		mov	dword[a], eax
+		mov	dword[n], eax
 
 ;;; ;  -----------------------------------
 ;;; ;  computation: ans = f(n) = f(n-1) + f(n-2) + f(n-3)
 ;;; ;  -----------------------------------
 
-;;; ; mov a to ecx
-		mov ecx, dword[a]
+;;; ; mov n to ecx
+		mov ecx, dword[n]
 ;;; ; subtract 3
 		sub ecx, 3
 ;;; ; store f(1) in eax, f(2) in ebx, and f(3) in edx

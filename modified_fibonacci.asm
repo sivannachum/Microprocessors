@@ -38,11 +38,11 @@ _start:
 		mov eax, 1
 		mov ebx, 1
 		mov edx, 1
+		mov dword[ans], 1
 
 ;;; ; loop code: calculate f(n), update f(n-3), f(n-2), and f(n-1)
-L1:		mov dword[ans], eax
+L1:		add dword[ans], eax
 		add dword[ans], ebx
-		add dword[ans], edx
 
 		mov eax, ebx
 		mov ebx, edx

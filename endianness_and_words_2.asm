@@ -22,7 +22,7 @@
 	prompt db "> "
 	n dd 0
 ;;; ; ; this keeps track of where we are in thestring
-	a dd 0
+	offset dd 0
 
 ;;; ; ; save enough space for at least 64 ints
 ;;; ; ; (each int is 4 bytes, or a double word)
@@ -64,7 +64,7 @@ loopsection:
 	call _getInput
 ;;; ; ; now int entered by user is in eax. Save in thestring+a
 ;;; ; ; need to put a in ebx to be able to use it
-	mov ebx, dword[a]
+	mov ebx, dword[offset]
 	mov dword[thestring+ebx], eax
 	
 ;;; ; ; flip lower 4 bits of the input
@@ -76,7 +76,7 @@ loopsection:
 ;;; ; ; flip top leftmost 2 bits and bottom rightmost 2 bits of the input + 3
 	xor byte[thestring+ebx+3], 0b11000011
 ;;; ; ; increase a by four bytes to prepare for the next input
-	add dword[a], 4
+	add dword[offset], 4
 ;;; ; ; get ecx off the stack for looping purposes
 	pop ecx
 

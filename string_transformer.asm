@@ -1,11 +1,12 @@
-;;; ; hw8_2.asm
+;;; ; string_transformer.asm
 ;;; ;
 ;;; ; Capitalizes letters in a given string and
 ;;; ; changes periods to exclamation points
+
 ;;; ; To assemble, link, and run:
-;;; ; nasm -f elf hw8_2.asm
-;;; ; ld -melf_i386 -o hw8_2 hw8_2.o 231Lib.o
-;;; ; ./hw8_2
+;;; ; nasm -f elf string_transformer.asm
+;;; ; ld -melf_i386 -o string_transformer string_transformer.o 231Lib.o
+;;; ; ./string_transformer
 ;;; ;
 	extern _println
 	extern _getString

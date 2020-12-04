@@ -8,12 +8,12 @@
 ;; 2757336163
 ;; 3810316394
 
-;;; ; ; hw8_1.asm
+;;; ; ; endianness_and_words_2.asm
 ;;; ; ;
 ;;; ; ; To assemble, link, and run:
-;;; ; ; nasm -f elf hw8_1.asm
-;;; ; ; ld -melf_i386 -o hw8_1 hw8_1.o 231Lib.o
-;;; ; ; ./hw8_1
+;;; ; ; nasm -f elf endianness_and_words_2.asm
+;;; ; ; ld -melf_i386 -o endianness_and_words_2 endianness_and_words_2.o 231Lib.o
+;;; ; ; ./endianness_and_words_2
 ;;; ; ;
 	extern _printString
 	extern _println

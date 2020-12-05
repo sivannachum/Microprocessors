@@ -6,8 +6,8 @@
 ;;; ; ./test_fib
 
 ;;; ;------------------------------------------------------------
-;;; ; test_functions.asm
-;;; ; tests the functions in functions.asm by calling each one
+;;; ; test_fib.asm
+;;; ; tests the function in recursive_fibonacci.asm by calling it
 ;;; ; and printing its result.
 ;;; ; This is a skeleton test program!
 ;;; ;------------------------------------------------------------

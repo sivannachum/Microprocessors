@@ -62,8 +62,8 @@ loopsection:
 	int 0x80
 ;;; ; ; get 32-bit integer, as a decimal
 	call _getInput
-;;; ; ; now int entered by user is in eax. Save in thestring+a
-;;; ; ; need to put a in ebx to be able to use it
+;;; ; ; now int entered by user is in eax. Save in thestring+offset
+;;; ; ; need to put offset in ebx to be able to use it
 	mov ebx, dword[offset]
 	mov dword[thestring+ebx], eax
 	

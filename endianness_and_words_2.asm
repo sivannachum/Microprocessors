@@ -75,7 +75,7 @@ loopsection:
 	xor byte[thestring+ebx+2], 0b00111100
 ;;; ; ; flip top leftmost 2 bits and bottom rightmost 2 bits of the input + 3
 	xor byte[thestring+ebx+3], 0b11000011
-;;; ; ; increase a by four bytes to prepare for the next input
+;;; ; ; increase offset by four bytes to prepare for the next input
 	add dword[offset], 4
 ;;; ; ; get ecx off the stack for looping purposes
 	pop ecx
